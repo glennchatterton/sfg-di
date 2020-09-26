@@ -11,14 +11,14 @@ public class GreetingController {
     private final GreetingService helloGreetingService;
 
     //Property based injection with spring
-    @Qualifier("byeGreetingService")
+    //@Qualifier("byeGreetingService")
     @Autowired
     public GreetingService byeGreetingService;
 
     private  GreetingService whatsUpGreetingService;
 
     //Setter based injection
-    @Qualifier("whatUpGreetingService")
+    //@Qualifier("whatUpGreetingService")
     @Autowired
     public void setGreetingServiceSetter(GreetingService greetingServiceSetter) {
         this.whatsUpGreetingService = greetingServiceSetter;
