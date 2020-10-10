@@ -3,6 +3,7 @@ package guru.springframework.sfgdi;
 import guru.springframework.sfgdi.controllers.ConfigurationController;
 import guru.springframework.sfgdi.controllers.GreetingController;
 import guru.springframework.sfgdi.datasources.FakeDataSource;
+import guru.springframework.sfgdi.datasources.FakeJmsBroker;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -18,6 +19,11 @@ public class SfgDiApplication {
 		FakeDataSource fakeDataSource = (FakeDataSource) ctx.getBean(FakeDataSource.class);
 
 		System.out.println(fakeDataSource.getUser());
+
+		FakeJmsBroker fakeJmsSource = (FakeJmsBroker) ctx.getBean(FakeJmsBroker.class);
+
+		System.out.println(fakeJmsSource.getUrl());
+
 
 	}
 
