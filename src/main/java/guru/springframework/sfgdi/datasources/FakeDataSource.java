@@ -5,6 +5,16 @@ public class FakeDataSource {
     private String password;
     private String url;
 
+    public String getAppDefauklt() {
+        return appDefauklt;
+    }
+
+    public void setAppDefauklt(String appDefauklt) {
+        this.appDefauklt = appDefauklt;
+    }
+
+    private String appDefauklt;
+
     public String getUser() {
         return user;
     }

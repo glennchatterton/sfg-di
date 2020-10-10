@@ -12,7 +12,7 @@ import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 @Configuration
 @PropertySources({
         @PropertySource("classpath:datasource.properties"),
-        @PropertySource("classpath:jms.properties")
+        //@PropertySource("classpath:jms.properties")
 })
 public class PropertyConfig {
 
@@ -34,12 +34,17 @@ public class PropertyConfig {
     @Value("${guru.jms.url}")
     String jmsUrl;
 
+    //this value comes from the default application.properies.
+    @Value("${guru.default.config}")
+    String appDefault;
+
     @Bean
     public FakeDataSource fakeDataSource() {
         FakeDataSource fakeDataSource = new FakeDataSource();
         fakeDataSource.setUser(dbUser);
         fakeDataSource.setPassword(dbPassword);
         fakeDataSource.setUrl(dbConnectionString);
+        fakeDataSource.setAppDefauklt(appDefault);
         return fakeDataSource;
     }
 
