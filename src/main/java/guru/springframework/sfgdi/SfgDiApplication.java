@@ -2,6 +2,7 @@ package guru.springframework.sfgdi;
 
 import guru.springframework.sfgdi.controllers.ConfigurationController;
 import guru.springframework.sfgdi.controllers.GreetingController;
+import guru.springframework.sfgdi.datasources.FakeDataSource;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -14,13 +15,9 @@ public class SfgDiApplication {
 	public static void main(String[] args) {
 		ApplicationContext ctx = SpringApplication.run(SfgDiApplication.class, args);
 
-		GreetingController greetingController = (GreetingController)ctx.getBean("greetingController");
-		System.out.println(greetingController.sayHello());
-		System.out.println(greetingController.sayBye());
-		System.out.println(greetingController.sayWhatsUp());
+		FakeDataSource fakeDataSource = (FakeDataSource) ctx.getBean(FakeDataSource.class);
 
-		ConfigurationController configurationController = (ConfigurationController)ctx.getBean("configurationController");
-		System.out.println(configurationController.getEnvironmentConfigRunning());
+		System.out.println(fakeDataSource.getUser());
 
 	}
 
